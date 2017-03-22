@@ -3,11 +3,11 @@ A rose chart extension using the RGraph chart library. Allows comparison for a t
 <br>
 <img src="https://github.com/ardwork/RoseChart-RGraph/blob/master/img/img1.jpg">
 <img src="https://github.com/ardwork/RoseChart-RGraph/blob/master/img/img2.jpg">
-<img src="https://github.com/ardwork/RoseChart-RGraph/blob/master/img/img3.jpg">
+<img src="https://github.com/ardwork/RoseChart-RGraph/blob/master/img/img3.JPG">
 <br>
 <br>
 <h3>Easy to setup menu options</h3>
-<img src="https://github.com/ardwork/RoseChart-RGraph/blob/master/img/menu.jpg">
+<img src="https://github.com/ardwork/RoseChart-RGraph/blob/master/img/menu.JPG">
 
 <br>
 <br>
