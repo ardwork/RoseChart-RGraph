@@ -1,0 +1,11 @@
+{
+    "name" : "Rose Chart - RGraph",
+    "description" : "A rose chart which is usually used to show pattern across points in time (e.g days of week). You can, of course, use any dimension you wish. Uses the RGraph chart library",
+    "icon" : "extension",
+    "type" : "visualization",
+    "version": "1.0",
+    "preview" : "extension",
+    "author": "Richard Byard"
+}
+
+
