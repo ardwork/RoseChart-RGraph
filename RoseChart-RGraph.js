@@ -58,42 +58,52 @@ define( [
 
 
             // Get the values of the dimension
+            // This object contains a simplified vision of the qMatrix object:
+            // [
+            //  [ "dim1-1", "dim2-1", "mea1-1" ],
+            //  [ "dim1-2", "dim2-2", "mea1-2" ],
+            //  [ "dim1-3", "dim2-3", "mea1-3" ],
+            //  ..
+            // ]
             var matrix = layout.qHyperCube.qDataPages[0].qMatrix.map(function (row, rowIndex) {
-                return row.map(function (col, colIndex) {
-                    if (colIndex + 1 <= numberOfDimensions) return col.qText;
-                    else return (col.qNum === 'NaN') ? col.qText : col.qNum
-                });
+                return row;
             });
 
 
             if (numberOfDimensions == 1) {
+                // Get labels
                 var dimArray = matrix.map(function(row) {
-                    return row[0];
+                    return row[0].qText;
                 });
 
+                // Get values
                 var dataArray = matrix.map(function(row) {
-                    return row[1];
+                    return row[1].qNum;
                 });
 
+                // Build tooltips
                 var valueTooltips = matrix.map(function(row) {
-                    return measure1Name + ': ' + row[0] + ': ' + String(row[1])
+                    return measure1Name + ': ' + row[0].qText + ': ' + row[1].qText
                 })
 
 
             } else if (numberOfDimensions == 2) {
 
+                // Intermediate object to regroup rows with same values for 1st dimension
                 var groupedMatrix = matrix.reduce(function(acc, val) {
-                    (acc[val[0]] = acc[val[0]] || []).push(val[2])
+                    (acc[val[0].qText] = acc[val[0].qText] || []).push(val[2].qNum)
                     return acc;
                 }, {})
 
+                // Get labels & values
                 var dimArray = Object.keys(groupedMatrix);
                 var dataArray = dimArray.map(function(key) {
                     return groupedMatrix[key];
                 })
 
+                // Build tooltips
                 var valueTooltips = matrix.map(function(row) {
-                    return measure1Name + ': ' + row[0] + ' / ' + row[1] + ': ' + String(row[2])
+                    return measure1Name + ': ' + row[0].qText + ' / ' + row[1].qText + ': ' + String(row[2].qText)
                 })
 
 
